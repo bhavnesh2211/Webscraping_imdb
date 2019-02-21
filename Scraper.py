@@ -39,38 +39,38 @@ def scrape_top_list():
 top_movies = scrape_top_list()
 # pprint(scrape_top_list())		
 
-# # task2
-# def group_by_year():
+# task2
+def group_by_year():
 
-# 	movies = scrape_top_list()
-# 	group_by_year = {}
-# 	for i in movies:	 	
-# 		group_by_year[i["year"]] = [j for j in movies if j["year"] == i["year"]]
-# 	return group_by_year
-# # pprint(group_by_year())
+	movies = scrape_top_list()
+	group_by_year = {}
+	for i in movies:	 	
+		group_by_year[i["year"]] = [j for j in movies if j["year"] == i["year"]]
+	return group_by_year
+# pprint(group_by_year())
 
-# #task3
-# def decade_by_year():
-# 	decade_by_year = {}
-# 	movies = scrape_top_list()
-# 	for i in movies:
-# 		a=(i["year"])%10
-# 		# print (a)
-# 		b = i["year"] - a
-# 		if b not in decade_by_year:
-# 			decade_by_year[b] = []
+#task3
+def decade_by_year():
+	decade_by_year = {}
+	movies = scrape_top_list()
+	for i in movies:
+		a=(i["year"])%10
+		# print (a)
+		b = i["year"] - a
+		if b not in decade_by_year:
+			decade_by_year[b] = []
 
-# 	for k in movies:
-# 		c = k["year"] % 10 
-# 		d = k["year"] - c 
-# 		for j in decade_by_year:
-# 			a = decade_by_year[j]
-# 			if d == j:
-# 				a.append(k)
+	for k in movies:
+		c = k["year"] % 10 
+		d = k["year"] - c 
+		for j in decade_by_year:
+			a = decade_by_year[j]
+			if d == j:
+				a.append(k)
 				
-# 	return (decade_by_year)
+	return (decade_by_year)
 
-# # pprint (decade_by_year())
+# pprint (decade_by_year())
 
  # task12
 
@@ -219,45 +219,45 @@ def get_movie_list_details(movies_list):
 top_list = get_movie_list_details(top_movies[:])
 # pprint(top_list)
 
-# # task6
-# def analyse_movies_language(movies_list):
-# 	analyse_movies_language = {}
-# 	language_list = []
-# 	movies = get_movie_list_details(movies_list)
-# 	for i in movies:
-# 		# a = json.loads(i)
-# 		for j in i["Language"]:
-# 			language_list.append(j)
-# 			count = 0
-# 			for l in language_list:
-# 				if l == j:
-# 					count += 1
-# 			analyse_movies_language[j] = count
-# 	return (analyse_movies_language)
-# top_movies = scrape_top_list()
-# movies_list = top_list
-# # # pprint (analyse_movies_language(movies_list))
+# task6
+def analyse_movies_language(movies_list):
+	analyse_movies_language = {}
+	language_list = []
+	movies = get_movie_list_details(movies_list)
+	for i in movies:
+		# a = json.loads(i)
+		for j in i["Language"]:
+			language_list.append(j)
+			count = 0
+			for l in language_list:
+				if l == j:
+					count += 1
+			analyse_movies_language[j] = count
+	return (analyse_movies_language)
+top_movies = scrape_top_list()
+movies_list = top_list
+# # pprint (analyse_movies_language(movies_list))
 
-# # task7
-# def analyse_movies_Director(movies_list):
-# 	analyse_movies_Director = {}
-# 	director_list = []
-# 	movies = get_movie_list_details(movies_list)
-# 	for i in movies:
-# 		# a = json.loads(i)
-# 		for j in i["Director"]:
-# 			# print (j)
-# 			director_list.append(j)
-# 			count = 0
-# 			for l in director_list:
-# 				if l == j:
-# 					count += 1
-# 			analyse_movies_Director[j] = count 			
-# 	return (analyse_movies_Director)
+# task7
+def analyse_movies_Director(movies_list):
+	analyse_movies_Director = {}
+	director_list = []
+	movies = get_movie_list_details(movies_list)
+	for i in movies:
+		# a = json.loads(i)
+		for j in i["Director"]:
+			# print (j)
+			director_list.append(j)
+			count = 0
+			for l in director_list:
+				if l == j:
+					count += 1
+			analyse_movies_Director[j] = count 			
+	return (analyse_movies_Director)
 
-# top_movies = scrape_top_list()
-# movies_list = top_list
-# # pprint (analyse_movies_Director(movies_list))
+top_movies = scrape_top_list()
+movies_list = top_list
+# pprint (analyse_movies_Director(movies_list))
 
 
 # # task10
@@ -290,21 +290,21 @@ movies_list = scrape_top_list()
 pprint(analyse_language_and_directors(movies_list))
 
 
-# # task11
-# def analyse_movies_genre(movies_list):
-# 	analyse_movies_genre = {}
-# 	movies = scrape_movie_details(movies_list)
-# 	for i in movies:
-# 		for j in i["Genre"]:
-# 			if j in i["Genre"]:
-# 				analyse_movies_genre[j] = 0
-# 	for i in movies:
-# 		for j in i["Genre"]:
-# 			if j in i["Genre"]:
-# 				analyse_movies_genre[j] += 1
-# 	return (analyse_movies_genre)
-# top_list = get_movie_list_details(movies_list)
-# # analyse_movies_genre(top_list)
+# task11
+def analyse_movies_genre(movies_list):
+	analyse_movies_genre = {}
+	movies = scrape_movie_details(movies_list)
+	for i in movies:
+		for j in i["Genre"]:
+			if j in i["Genre"]:
+				analyse_movies_genre[j] = 0
+	for i in movies:
+		for j in i["Genre"]:
+			if j in i["Genre"]:
+				analyse_movies_genre[j] += 1
+	return (analyse_movies_genre)
+top_list = get_movie_list_details(movies_list)
+# analyse_movies_genre(top_list)
 
 
 # task14
